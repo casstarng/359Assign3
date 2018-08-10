@@ -14,10 +14,16 @@ public abstract class Resource extends LabResource{
         statusActive = true;
     }
 
+    /**
+     * @return costOfMaintenance
+     */
     public double getCostOfMaintenance(){
         return costOfMaintenance;
     }
 
+    /**
+     * Prints the Resource Details
+     */
     public void showResourceDetails(){
         System.out.println("Resource ID: " + getResourceID());
         System.out.println("Supervisor: " + getSupervisor());
@@ -25,13 +31,23 @@ public abstract class Resource extends LabResource{
         System.out.println("Status: " + statusActive);
     }
 
+    /**
+     *
+     * @return true if model is older than given year, false if not
+     */
     public boolean oldModel(int year){
         return modelYear < year;
     }
 
+    /**
+     * Sets the status to false
+     */
     public void setInactive(){
         statusActive = false;
     }
 
+    /**
+     * @return active status
+     */
     public boolean isActive(){ return statusActive; }
 }
