@@ -35,4 +35,6 @@ public abstract class LabResource {
     public String getSupervisor(){
         return supervisor;
     }
+
+    public void setSupervisor(String supervisor) { this.supervisor = supervisor; }
 }
