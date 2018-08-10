@@ -55,31 +55,38 @@ public class ComputerCluster extends LabResource {
     }
 
     /**
+     * Sets resourceID as inactive using remove helper method
+     */
+    public void setInactive(String resourceID){
+        remove(labResources, resourceID);
+    }
+
+    /**
      * Removes the target resource
      */
     public void remove(LabResource target){
-        remove(labResources, target);
+        remove(labResources, target.getResourceID());
     }
 
     /**
      * Helper method for remove
      */
-    private void remove(ArrayList<LabResource> labResources, LabResource target){
+    private void remove(ArrayList<LabResource> labResources, String resourceID){
         for(LabResource l : labResources){
             // If resource is a leaf and target matches, setInactive
             if (l instanceof Resource){
-                if (l.getResourceID().equals(target.getResourceID())){
+                if (l.getResourceID().equals(resourceID)){
                     ((Resource) l).setInactive();
                     return;
                 }
             }
             // If resource is a cluster and target matches, remove all resources under the cluster
-            else if(l.getResourceID().equals(target.getResourceID())){
+            else if(l.getResourceID().equals(resourceID)){
                 removeAllUnderCluster(((ComputerCluster) l).getLabResources());
             }
             // If resource is a cluster and target doesn't match, search through cluster for target
             else{
-                remove(((ComputerCluster) l).getLabResources(), target);
+                remove(((ComputerCluster) l).getLabResources(), resourceID);
             }
         }
     }

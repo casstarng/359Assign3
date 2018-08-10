@@ -14,7 +14,8 @@ public class Main {
         cB.add(cA);
         cB.add(p2);
 
-        cB.showResourceDetails();
-        //System.out.println(cB.getCostOfMaintenance());
+        //cB.showResourceDetails();
+        cB.setInactive(cA.getResourceID());
+        System.out.println(cB.getCostOfMaintenance());
     }
 }
