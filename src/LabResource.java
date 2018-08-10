@@ -10,7 +10,7 @@ public abstract class LabResource {
         this.supervisor = supervisor;
     }
 
-    public LabResource(){}
+    public LabResource(String resourceID){ this.resourceID = resourceID; }
 
     public double getCostOfMaintenance(){
         throw new UnsupportedOperationException();
