@@ -10,6 +10,8 @@ public abstract class LabResource {
         this.supervisor = supervisor;
     }
 
+    public LabResource(){}
+
     public double getCostOfMaintenance(){
         throw new UnsupportedOperationException();
     }
@@ -22,7 +24,7 @@ public abstract class LabResource {
         throw new UnsupportedOperationException();
     }
 
-    public void remove(int id){
+    public void remove(LabResource labResource){
         throw new UnsupportedOperationException();
     }
 

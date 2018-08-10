@@ -7,8 +7,9 @@ public abstract class Resource extends LabResource{
     private boolean statusActive;
     private double costOfMaintenance;
 
-    public Resource(String resourceID, String supervisor, int modelYear){
+    public Resource(String resourceID, String supervisor,double costOfMaintenance, int modelYear){
         super(resourceID, supervisor);
+        this.costOfMaintenance = costOfMaintenance;
         this.modelYear = modelYear;
         statusActive = true;
     }
@@ -31,4 +32,6 @@ public abstract class Resource extends LabResource{
     public void setInactive(){
         statusActive = false;
     }
+
+    public boolean isActive(){ return statusActive; }
 }
